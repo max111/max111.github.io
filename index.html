@@ -14,8 +14,10 @@
     var yPosition = 40;
     const mouseX = document.getElementById("x");
     const mouseY = document.getElementById("y");
-    if (mouseX <= 25) {
-      xPosition += 5;
+    function updateDisplay(event) {
+      if (mouseX <= 25) {
+        xPosition += 5;
+      }
     }
     ctx.beginPath();
     ctx.arc(xPosition, yPosition, 40, 0, 2 * Math.PI);
