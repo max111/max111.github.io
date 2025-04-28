@@ -6,22 +6,30 @@
 <style>
 </style>
 <body>
-  <canvas id="mainContent" width="400" height="300"></canvas>
+  <canvas id="mainContent" width="600" height="500"></canvas>
   <script>
-    var c = document.getElementById("mainContent");
-    var ctx = c.getContext("2d");
-    var xPosition = 95;
-    var yPosition = 40;
-    const mouseX = document.getElementById("x");
-    const mouseY = document.getElementById("y");
-    function updateDisplay(event) {
-      if (mouseX <= 25) {
-        xPosition += 5;
+    var x0 = 200;
+    var y0 = 300;
+    var x;
+    var y;
+    var context = document.getElementById("mainContent".getContext("2d");
+    conext.clearRect(0, 0, 600, 500);
+    context.arc(200, 300, 75, 0, 2 * Math.PI);
+    document.getElementById("mainContent").addEventListener("mousemove", 
+      function(event){
+        x = event.clientX;
+        y = event.clientY;
+        x0 = x;
+        y0 = y;
+        context.beginPath();
+        context.clearRect(0, 0, 600, 500);
+        context.arc(x, y, 75, 0, 2 * Math.PI);
+        context.stroke();
       }
+    );
+    funtion getDistance(x0, x1, y0, y1){
+      return Math.sqrt(Math.pow(x1-x0, 2) + Math.pow(y1-y0, 2));
     }
-    ctx.beginPath();
-    ctx.arc(xPosition, yPosition, 40, 0, 2 * Math.PI);
-    ctx.stroke();
   </script>
   <h1>Notes/What this should include:</h1>
   <ul>
