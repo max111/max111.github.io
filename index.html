@@ -10,8 +10,15 @@
   <script>
     var c = document.getElementById("mainContent");
     var ctx = c.getContext("2d");
+    var xPosition = 95;
+    var yPosition = 40;
+    const mouseX = document.getElementById("x");
+    const mouseY = document.getElementById("y");
+    if (mouseX <= 25) {
+      xPosition += 5;
+    }
     ctx.beginPath();
-    ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+    ctx.arc(xPosition, yPosition, 40, 0, 2 * Math.PI);
     ctx.stroke();
   </script>
   <h1>Notes/What this should include:</h1>
