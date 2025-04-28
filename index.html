@@ -5,7 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
 </style>
+<script>
+  var c = document.getElementById("mainContent");
+  var ctx = c.getContext("2d");
+  ctx.beginPath();
+  ctx.arc(95, 50, 40, 0, 2 * Math.PI);
+  ctx.stroke();
+</script>
 <body>
+  <canvas id="mainContent" width="400" height="300"></canvas>
   <h1>Notes/What this should include:</h1>
   <ul>
     <li><h2>A landing page with basic information</h2></li>
