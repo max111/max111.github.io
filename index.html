@@ -8,28 +8,58 @@
 <body>
   <canvas id="mainContent" width="600" height="500"></canvas>
   <script>
-    var x0 = 200;
-    var y0 = 300;
-    var x;
-    var y;
-    var context = document.getElementById("mainContent".getContext("2d");
-    conext.clearRect(0, 0, 600, 500);
-    context.arc(200, 300, 75, 0, 2 * Math.PI);
-    document.getElementById("mainContent").addEventListener("mousemove", 
-      function(event){
-        x = event.clientX;
-        y = event.clientY;
+    //keep track of previous x and y coordinates
+var x0 = 200;
+var y0 = 300;
+//keep track of mouse key state
+var down = false;
+
+var x;
+var y;
+
+//draw the initial circle someplace random
+var context = document.getElementById("canv").getContext("2d");
+context.clearRect(0, 0, 600, 500);
+context.arc(200,300, 75, 0, 2*Math.PI);
+context.stroke();
+
+document.addEventListener("mousedown", function()
+  {
+    //if mousedown event is logged and we are within the area of the circle then state of down is true
+    if(getDistance(x, x0, y, y0) < 75) down = true;
+  });
+
+document.addEventListener("mouseup", function()
+  {
+    //if mouseup event is logged then down is now false
+    down = false;
+  });
+
+document.getElementById("canv").addEventListener("mousemove", 
+    function(event){
+      x = event.clientX;
+      y = event.clientY;
+     //we need to be in "down" state in order for a redraw to be necessary
+     if(down)
+     {  
+        //set the previous coordinates to the new coordinates we are drawing.
         x0 = x;
         y0 = y;
+        
+        //draw the darn thing
         context.beginPath();
         context.clearRect(0, 0, 600, 500);
-        context.arc(x, y, 75, 0, 2 * Math.PI);
+        context.arc(x, y, 75, 0, 2*Math.PI);
         context.stroke();
-      }
-    );
-    funtion getDistance(x0, x1, y0, y1){
-      return Math.sqrt(Math.pow(x1-x0, 2) + Math.pow(y1-y0, 2));
+     }
     }
+);
+
+function getDistance(x0, x1, y0, y1)
+{
+  return Math.sqrt(Math.pow(x1-x0,2) + Math.pow(y1-y0, 2));  
+  
+}
   </script>
   <h1>Notes/What this should include:</h1>
   <ul>
