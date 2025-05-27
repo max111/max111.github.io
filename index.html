@@ -1,82 +1,45 @@
-<!DOCTYPE html>
+
+<!doctype html>
 <html>
-<title>Maxwell Johnson</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-</style>
-<body>
-  <canvas id="mainContent" width="600" height="500"></canvas>
-  <script>
-    //keep track of previous x and y coordinates
-var x0 = 200;
-var y0 = 300;
-//keep track of mouse key state
-var down = false;
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maxwell "Po" Johnson</title>
 
-var x;
-var y;
+    <meta name="viewport" content="width=device-width">
 
-//draw the initial circle someplace random
-var context = document.getElementById("canv").getContext("2d");
-context.clearRect(0, 0, 600, 500);
-context.arc(200,300, 75, 0, 2*Math.PI);
-context.stroke();
+    <style>
+      html, body {
+        position: relative;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      main {
+        position: relative;
+        top: 40%;
+        transform: translateY(-50%);
+        text-align: center;
+      }
 
-document.addEventListener("mousedown", function()
-  {
-    //if mousedown event is logged and we are within the area of the circle then state of down is true
-    if(getDistance(x, x0, y, y0) < 75) down = true;
-  });
+      h1 {
+        margin: 0;
+        display: inline;
+      }
 
-document.addEventListener("mouseup", function()
-  {
-    //if mouseup event is logged then down is now false
-    down = false;
-  });
-
-document.getElementById("canv").addEventListener("mousemove", 
-    function(event){
-      x = event.clientX;
-      y = event.clientY;
-     //we need to be in "down" state in order for a redraw to be necessary
-     if(down)
-     {  
-        //set the previous coordinates to the new coordinates we are drawing.
-        x0 = x;
-        y0 = y;
-        
-        //draw the darn thing
-        context.beginPath();
-        context.clearRect(0, 0, 600, 500);
-        context.arc(x, y, 75, 0, 2*Math.PI);
-        context.stroke();
-     }
-    }
-);
-
-function getDistance(x0, x1, y0, y1)
-{
-  return Math.sqrt(Math.pow(x1-x0,2) + Math.pow(y1-y0, 2));  
-  
-}
-  </script>
-  <h1>Notes/What this should include:</h1>
-  <ul>
-    <li><h2>A landing page with basic information</h2></li>
-    <li><h2>A page of general information about me</h2></li>
-    <li><h3>Work experience</h3></li>
-    <li><h3>School</h3></li>
-    <li><h2>A page documenting my most recent projects</h2></li>
-    <li><h3>Like a blog for each project where the final project (or current state) is shown as well as a narrative of my work on it and the background thought process.</h3></li>
-    <li><h2>A page with my resume and my work samples</h2></li>
-    <li><h3>Atherton Housing Element</h3></li>
-    <li><h3>Atherton Multi-family housing ordinance</h3></li>
-    <li><h3>Sonoma County Airport Area Specific Plan (especially the Community Assessment)</h3></li>
-    <li><h2>A contact page</h2></li>
-    <li><h3>Email: mhpj@att.net</h3></li>
-  </ul>
-  <h1>MAKE IT ALL A CITY THAT YOU CAN INTERACT WITH</h1>
-  <!-- look at this really good one: https://bruno-simon.com/ -->
-</body>
+      a, a:visited {
+        color: inherit;
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Maxwell "Po" Johnson</h1>
+      <br>
+      <a href="mailto:mhpj@att.net" title="mhpj@att.net">mhpj@att.net</a>
+    </main>
+  </body>
 </html>
